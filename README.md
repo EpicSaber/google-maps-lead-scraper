@@ -1,300 +1,268 @@
-[Google Maps Lead Scraper](https://apify.com/nourishing_courier/google-maps-lead-scraper?fpr=data)
+[Google Maps Lead Scraper](https://apify.com/sovereigntaylor/google-maps-lead-scraper?fpr=data)
 
-# Google Maps Scraper - Extract Business Leads with Emails & Phone Numbers
+Extract business leads from Google Maps with **emails, phone numbers, websites, ratings, and reviews**. The ultimate tool for B2B lead generation, sales prospecting, local marketing, and competitive analysis.
 
-> **Stop wasting 40+ hours on manual lead research.** Extract 1,000+ verified business contacts from Google Maps in under 10 minutes. Emails, phone numbers, websites, reviews - all automated.
+## What Makes This Different
 
-[![Try Free](https://img.shields.io/badge/Try_Free-100_Leads-brightgreen?style=for-the-badge)](https://apify.com/actors)
-[![No Coding](https://img.shields.io/badge/No_Coding-Required-blue?style=for-the-badge)](https://apify.com/actors)
-[![Export Excel](https://img.shields.io/badge/Export-Excel%2FCSV-orange?style=for-the-badge)](https://apify.com/actors)
+Most Google Maps scrapers give you basic business info. This actor goes **three layers deeper**:
 
----
+1. **Searches Google Maps** for businesses matching your query with full pagination
+2. **Extracts detailed data** from each listing — name, address, phone, rating, reviews, category, hours, price level, coordinates, photos, place ID
+3. **Visits business websites** to find email addresses using multiple extraction strategies (mailto links, regex scanning, contact page crawling, meta tag parsing)
+4. **Validates and deduplicates** all contact data before output
 
-## Why 10,000+ Sales Teams Choose This Scraper
+The result: **sales-ready lead lists** with verified contact information you can import directly into your CRM.
 
-| Manual Research | This Scraper |
-| --- | --- |
-| 40+ hours per 1,000 leads | **10 minutes** |
-| Copy-paste errors | **100% accurate data** |
-| No email addresses | **Built-in email finder** |
-| Limited to office hours | **Runs 24/7 automatically** |
-| $500+ in labor costs | **Starts at $5** |
+## Use Cases
 
----
+### Sales & Outreach
 
-## What You Get (Per Business)
+- **Cold Email Campaigns** — Build targeted lists of businesses with verified emails for outreach
+- **Sales Prospecting** — Find decision-makers at local businesses by industry and location
+- **Account-Based Marketing** — Map out all businesses in a target market segment
 
-| Data Point | Example | Included |
-| --- | --- | --- |
-| Business Name | "Blue Bottle Coffee" | Yes |
-| Email Address | [hello@bluebottle.com](mailto:hello@bluebottle.com) | Yes |
-| Phone Number | +1 (415) 555-0123 | Yes |
-| Website URL | bluebottlecoffee.com | Yes |
-| Full Address | 315 Linden St, San Francisco, CA | Yes |
-| Star Rating | 4.5 / 5.0 | Yes |
-| Review Count | 1,847 reviews | Yes |
-| Price Level | $$ | Yes |
-| Business Category | Coffee Shop, Cafe | Yes |
-| Opening Hours | Mon-Fri 7AM-6PM | Yes |
-| GPS Coordinates | 37.7765, -122.4214 | Yes |
-| Google Maps Link | Direct URL | Yes |
-| Photos | Up to 10 URLs | Optional |
-| Review Text | Individual reviews | Optional |
+### Local Marketing & Agencies
 
----
+- **Client Prospecting** — Find businesses that need marketing services (low ratings, no website, etc.)
+- **Competitor Analysis** — Map all competitors in a geographic area with ratings and reviews
+- **Local SEO Audits** — Analyze business presence and review profiles across a region
 
-## 3 Steps to Your First 100 Leads (Free)
+### Market Research
 
-### Step 1: Enter Your Search
+- **Business Density Analysis** — Count and categorize businesses by area and industry
+- **Rating & Review Analysis** — Benchmark quality scores across competitors
+- **Pricing Intelligence** — Compare price levels across similar businesses
+- **New Market Entry** — Evaluate business landscapes before expanding to new cities
 
-Type any Google Maps search:
+### Real Estate & Recruiting
 
-```
-restaurants in Miami Beach
-plumbers near Chicago IL
-dentists Los Angeles
-lawyers New York City
-contractors San Francisco
-```
+- **Property Management Leads** — Find property managers, real estate agents, brokerages
+- **Recruiting Targets** — Identify companies in specific industries for talent sourcing
+- **Vendor Discovery** — Find service providers and suppliers in any category
 
-### Step 2: Click Start
+## Input Examples
 
-That's it. No API keys. No coding. No complex setup.
-
-### Step 3: Download Your Leads
-
-Export to **Excel**, **CSV**, or **JSON** with one click.
-
----
-
-## Real Results From Real Users
-
-> *"Replaced our $2,000/month lead vendor. This scraper pays for itself in one day."*
-> **- David K., Marketing Agency Owner**
-
-> *"Built a list of 5,000 restaurants for our food delivery startup in 2 hours. Would have taken weeks manually."*
-> **- Sarah M., Startup Founder**
-
-> *"The email finder feature alone is worth 10x the price. Game changer for cold outreach."*
-> **- Marcus T., Sales Director**
-
----
-
-## Perfect For
-
-### Sales Teams
-
-Build hyper-targeted prospect lists. Extract decision-maker contact info for any industry, any location.
-
-### Marketing Agencies
-
-Find local business clients at scale. Offer SEO audits, Google Ads management, or social media services.
-
-### Recruiters & HR
-
-Source company information for executive recruiting. Get direct contact details for hiring managers.
-
-### Market Researchers
-
-Analyze competitor density, pricing patterns, and customer sentiment across regions.
-
-### Real Estate Professionals
-
-Find property management companies, contractors, or commercial businesses in target areas.
-
-### Local Service Businesses
-
-Identify potential B2B partners, suppliers, or referral sources in your market.
-
----
-
-## Input Configuration
+### Basic - Plumbers in Austin TX
 
 ```
 {
-    "searchQueries": [
-        "coffee shops in San Francisco",
-        "dentists in Los Angeles",
-        "plumbers in Chicago"
-    ],
-    "maxResults": 100,
-    "extractEmails": true,
-    "extractReviews": false,
-    "language": "en"
+  "searchQuery": "plumbers in Austin TX",
+  "maxResults": 100,
+  "includeEmails": true,
+  "includePhone": true,
+  "includeWebsite": true
 }
 ```
 
-### Input Options Explained
-
-| Field | Description | Default |
-| --- | --- | --- |
-| `searchQueries` | What you'd type into Google Maps | Required |
-| `startUrls` | Direct Google Maps URLs (alternative to search) | Optional |
-| `maxResults` | Leads per search (max 500) | 100 |
-| `extractEmails` | Visit websites to find email addresses | true |
-| `extractReviews` | Include individual review text | false |
-| `extractPhotos` | Include business photo URLs | false |
-| `language` | Results language (en, es, de, fr, etc.) | en |
-
----
-
-## Sample Output
+### Targeted - Dentists in Los Angeles
 
 ```
 {
-    "name": "Blue Bottle Coffee",
-    "email": "hello@bluebottlecoffee.com",
-    "emails": ["hello@bluebottlecoffee.com", "press@bluebottlecoffee.com"],
-    "phone": "+1 510-653-3394",
-    "website": "https://bluebottlecoffee.com",
-    "address": "315 Linden St, San Francisco, CA 94102",
-    "rating": 4.5,
-    "reviewsCount": 1847,
-    "priceLevel": "$$",
-    "category": "Coffee shop",
-    "categories": ["Coffee shop", "Cafe", "Espresso bar"],
-    "isOpen": true,
-    "openingHours": {
-        "monday": "7:00 AM - 6:00 PM",
-        "tuesday": "7:00 AM - 6:00 PM",
-        "wednesday": "7:00 AM - 6:00 PM",
-        "thursday": "7:00 AM - 6:00 PM",
-        "friday": "7:00 AM - 6:00 PM",
-        "saturday": "8:00 AM - 6:00 PM",
-        "sunday": "8:00 AM - 5:00 PM"
-    },
-    "latitude": 37.7765432,
-    "longitude": -122.4214567,
-    "plusCode": "849VQH8V+XX",
-    "placeId": "ChIJN1t_tDeuEmsRUsoyG83frY4",
-    "googleMapsUrl": "https://google.com/maps/place/...",
-    "scrapedAt": "2025-01-15T10:30:00.000Z",
-    "searchQuery": "coffee shops in San Francisco"
+  "searchQuery": "dentists in Los Angeles CA",
+  "maxResults": 500,
+  "includeEmails": true,
+  "includePhone": true,
+  "includeWebsite": true,
+  "language": "en"
 }
 ```
 
----
+### International - Hotels in Paris
 
-## Advanced Features
+```
+{
+  "searchQuery": "hotels in Paris",
+  "location": "Paris, France",
+  "maxResults": 300,
+  "includeEmails": true,
+  "includePhone": true,
+  "includeWebsite": true,
+  "language": "fr"
+}
+```
 
-### Built-in Email Finder
+### Budget Run - Quick Sample
 
-Unlike basic scrapers, we don't just grab the Google Maps listing. We **visit each business website** and extract email addresses automatically. Get contact emails that aren't publicly listed on Google.
+```
+{
+  "searchQuery": "restaurants near downtown Chicago",
+  "maxResults": 50,
+  "includeEmails": true,
+  "includePhone": true,
+  "includeWebsite": true
+}
+```
 
-### Anti-Blocking Technology
+### Spanish Market
 
-- Residential proxy rotation
-- Human-like browsing patterns
-- Automatic CAPTCHA handling
-- Smart session management
-- Fingerprint randomization
+```
+{
+  "searchQuery": "abogados en Madrid",
+  "maxResults": 200,
+  "includeEmails": true,
+  "includePhone": true,
+  "includeWebsite": true,
+  "language": "es"
+}
+```
 
-### Worldwide Coverage
+## Output Format
 
-Works in **195+ countries**. Extract leads in any language - English, Spanish, German, French, Japanese, Arabic, and more.
+Each lead in the dataset contains:
 
-### Scheduled Runs
+| Field | Type | Description |
+| --- | --- | --- |
+| `businessName` | string | Business name as shown on Google Maps |
+| `address` | string | Full street address |
+| `phone` | string | Primary phone number |
+| `website` | string | Business website URL |
+| `email` | string | Primary email address (first found) |
+| `allEmails` | array | All email addresses found on the website |
+| `rating` | number | Google Maps rating (1.0 - 5.0) |
+| `reviewCount` | number | Number of Google reviews |
+| `category` | string | Business category (e.g. "Plumber", "Restaurant") |
+| `priceLevel` | string | Price level ($, $$, $$$, $$$$) |
+| `hours` | object | Operating hours by day of week |
+| `latitude` | number | GPS latitude coordinate |
+| `longitude` | number | GPS longitude coordinate |
+| `placeId` | string | Google Maps Place ID |
+| `photos` | array | URLs of business photos |
+| `isVerified` | boolean | Whether the business is verified on Google |
+| `googleMapsUrl` | string | Direct link to Google Maps listing |
+| `emailSources` | array | Where each email was found (mailto, regex, contact-page) |
+| `socialLinks` | object | Social media profiles found on the website |
+| `leadScore` | number | Quality score 0-100 (based on data completeness) |
+| `leadQuality` | string | "hot" (70+), "warm" (40-69), or "cold" (<40) |
+| `scrapedAt` | string | ISO timestamp of when the lead was scraped |
 
-Set up automatic scraping on a schedule. Get fresh leads delivered to your inbox daily, weekly, or monthly.
+### Sample Output
 
-### API & Integrations
-
-Connect directly to your CRM, spreadsheets, or marketing tools via API or webhooks.
-
----
-
-## Frequently Asked Questions
-
-### How many leads can I extract?
-
-Up to **500 leads per search query**. Run multiple searches in parallel for larger datasets. No monthly limits.
-
-### How fast is it?
-
-Approximately **50-100 leads per minute**, depending on whether email extraction is enabled.
-
-### Is this legal?
-
-Yes. We extract publicly available information from Google Maps. The data is the same as what anyone can see by visiting Google Maps manually. Always ensure your use of the data complies with GDPR, CCPA, and other applicable privacy laws.
-
-### Do I need technical skills?
-
-No. If you can use Google search, you can use this scraper. Enter a search, click Start, download results.
-
-### What export formats are available?
-
-- **Excel (.xlsx)** - Ready for spreadsheets
-- **CSV** - Universal format
-- **JSON** - For developers
-- **Direct API access** - For automation
-
-### Can I scrape specific Google Maps URLs?
-
-Yes! Use the `startUrls` input to scrape specific business pages or search result pages directly.
-
-### How accurate is the email finder?
-
-The email finder visits actual business websites and extracts real email addresses. Accuracy is typically 60-80% (not all businesses list emails publicly).
-
-### Do you offer refunds?
-
-Yes. If the scraper doesn't work as described, contact Apify support for a full refund.
-
----
+```
+{
+  "businessName": "Austin Premier Plumbing",
+  "address": "4521 Congress Ave, Austin, TX 78745",
+  "phone": "+15125551234",
+  "website": "https://austinpremierplumbing.com",
+  "email": "info@austinpremierplumbing.com",
+  "allEmails": [
+    "info@austinpremierplumbing.com",
+    "scheduling@austinpremierplumbing.com"
+  ],
+  "rating": 4.8,
+  "reviewCount": 523,
+  "category": "Plumber",
+  "priceLevel": "$$",
+  "hours": {
+    "Monday": "7:00 AM - 6:00 PM",
+    "Tuesday": "7:00 AM - 6:00 PM",
+    "Wednesday": "7:00 AM - 6:00 PM",
+    "Thursday": "7:00 AM - 6:00 PM",
+    "Friday": "7:00 AM - 6:00 PM",
+    "Saturday": "8:00 AM - 2:00 PM",
+    "Sunday": "Closed"
+  },
+  "latitude": 30.2245,
+  "longitude": -97.7633,
+  "placeId": "ChIJ2dGMjMMRW4YRxTlQNfczEfw",
+  "photos": [
+    "https://lh5.googleusercontent.com/p/AF1QipN..."
+  ],
+  "isVerified": true,
+  "googleMapsUrl": "https://www.google.com/maps/place/...",
+  "emailSources": ["mailto", "contact-page"],
+  "socialLinks": {
+    "facebook": "https://facebook.com/austinpremierplumbing",
+    "instagram": "https://instagram.com/austinpremierplumbing",
+    "linkedin": null,
+    "twitter": null,
+    "youtube": null,
+    "tiktok": null
+  },
+  "leadScore": 85,
+  "leadQuality": "hot",
+  "scrapedAt": "2026-03-02T14:30:00.000Z"
+}
+```
 
 ## Pricing
 
-| Usage | Cost | Best For |
-| --- | --- | --- |
-| **Free Trial** | $0 | Test with 100 leads |
-| **Pay As You Go** | ~$5 per 1,000 leads | Occasional use |
-| **Subscription** | From $49/month | Regular prospecting |
+**Pay-per-event**: $0.008 per business lead with contact info. You only pay for leads that are successfully scraped and enriched.
 
-*Pricing based on Apify platform compute units. Actual cost varies by data complexity.*
+| Leads | Cost |
+| --- | --- |
+| 50 | $0.40 |
+| 100 | $0.80 |
+| 250 | $2.00 |
+| 500 | $4.00 |
+| 1,000 | $8.00 |
+| 5,000 | $40.00 |
+
+## Tips for Best Results
+
+1. **Be specific with your query** — "Italian restaurants in downtown Miami FL" returns better leads than just "restaurants"
+2. **Use residential proxies** — Google blocks datacenter IPs aggressively. Apify residential proxies are strongly recommended.
+3. **Start with a small test** — Run 50 leads first to verify data quality for your niche before scaling up
+4. **Enable email enrichment** — The email data alone makes this 10x more valuable than basic scrapers
+5. **Try different query variations** — "plumber in Austin" vs "plumbing services Austin TX" may return different results
+6. **Export to CRM** — Download as CSV and import into HubSpot, Salesforce, Apollo, or Instantly.ai
+7. **Filter by rating** — High-rated businesses (4.0+) are more likely to have active websites with contact info
+
+## How It Works
+
+### Phase 1 - Google Maps Search
+
+The actor searches Google Maps using your query and automatically paginates through all available results. For each listing, it extracts the business name, address, phone number, rating, review count, category, price level, operating hours, GPS coordinates, photos, and Google Place ID.
+
+### Phase 2 - Website Email Enrichment
+
+For each business that has a website URL, the actor visits the site and applies multiple email extraction strategies:
+
+- **Mailto link extraction** — Finds all `mailto:` links in the page HTML
+- **Regex pattern scanning** — Scans page content for email-like patterns
+- **Contact page crawling** — Follows links to /contact, /about, /team pages for additional emails
+- **Meta tag parsing** — Checks meta tags and structured data for contact information
+- **Social link extraction** — Finds LinkedIn, Facebook, Twitter/X, Instagram, YouTube, and TikTok profiles
+
+### Phase 3 - Validation & Output
+
+All extracted data is validated, deduplicated, and cleaned:
+
+- Filters out generic emails (noreply@, no-reply@, admin@, webmaster@, etc.)
+- Validates email format with regex
+- Removes duplicate entries
+- Normalizes phone number formats
+- Outputs clean, structured JSON ready for export
+
+## Integrations
+
+Export your leads to:
+
+- **CSV / Excel** — Download directly from the Apify console
+- **Google Sheets** — Use Apify's built-in Google Sheets integration
+- **Webhooks** — Send leads to your CRM or automation tool in real-time
+- **Apify API** — Fetch results programmatically for custom integrations
+- **Zapier / Make** — Connect to 5,000+ apps via automation platforms
+
+## FAQ
+
+**Q: How many leads can I scrape per run?**
+A: Up to 5,000 leads per run. For larger datasets, run the actor multiple times with different search queries or locations.
+
+**Q: How accurate are the emails?**
+A: Emails are extracted directly from business websites, so accuracy is typically 80-90%. Generic/junk emails are automatically filtered out. Only emails found on the actual business domain are included.
+
+**Q: Does this work for any country?**
+A: Yes. Google Maps is available worldwide. Set the `language` parameter to match your target market (en, es, fr, de, pt, it, ja, zh, ko, ar).
+
+**Q: How long does a run take?**
+A: Approximately 3-8 minutes per 100 leads, depending on whether email enrichment is enabled and proxy speed.
+
+**Q: Why do some businesses not have emails?**
+A: Not all businesses have websites, and not all websites display email addresses publicly. Typically 40-70% of leads will have at least one email, depending on the industry and region.
+
+**Q: Can I scrape Google Maps without proxies?**
+A: Small runs (under 20 results) may work without proxies, but Google blocks non-residential IPs quickly. Residential proxies are strongly recommended for reliable results.
 
 ---
 
-## Compare to Alternatives
-
-| Feature | This Scraper | Outscraper | PhantomBuster | Manual VA |
-| --- | --- | --- | --- | --- |
-| Email extraction | Yes | No | No | Yes |
-| Price per 1K leads | ~$5 | $15+ | $20+ | $100+ |
-| Setup time | 1 min | 10 min | 30 min | Days |
-| Anti-blocking | Advanced | Basic | Basic | N/A |
-| Free trial | Yes | Limited | Limited | No |
-
----
-
-## Get Started Now
-
-1. **Click "Try for Free"** above
-2. Enter your first search (e.g., "restaurants in New York")
-3. Download your leads in Excel format
-4. Start reaching out to your new prospects!
-
-**Questions?** Check the [Apify Help Center](https://help.apify.com) or open an issue on GitHub.
-
----
-
-## Technical Details
-
-- **Runtime**: Node.js 20 with Playwright
-- **Proxy**: Supports Apify Proxy (residential recommended)
-- **Memory**: 1-4 GB (auto-scaled)
-- **Concurrency**: Up to 5 parallel browsers
-
----
-
-## Related Tools
-
-- [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) - Scrape Google SERP
-- [LinkedIn Company Scraper](https://apify.com/anchor/linkedin-company-scraper) - Extract company data
-- [Yelp Scraper](https://apify.com/yin/yelp-scraper) - Scrape Yelp business listings
-- [Yellow Pages Scraper](https://apify.com/apify/yellow-pages-scraper) - Extract Yellow Pages data
-
----
-
-**Built with [Crawlee](https://crawlee.dev)** - The web scraping and browser automation library
-
-*Last updated: January 2025*
+Built by [Sovereign AI](https://github.com/ryudi84) -- autonomous AI infrastructure for lead generation at scale.
